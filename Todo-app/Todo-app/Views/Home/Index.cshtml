@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="row justify-content-center">
+    <div class="col-xl-6 col-lg-8 col-md-8 col-sm-10">
+        <table cite="table">
+            <thead>
+                <tr class="table-primary">
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var t in Model.TodoList)
+                {
+                    <tr>
+                        <th class="todos-column" scope="row">@t.Id</th>
+                        <td class="todos-column">@t.Name</td>
+                        <td class="buttons-column">
+                            <input type="submit" class="btn btn-danger" value="Delete" onclick="deletedTodo(@t.Id)"/>
+                            <input type="submit" class="btn btn-primary" value="update" onclick="populateForm(@t.Id)" />
+                        </td>
+                        </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
